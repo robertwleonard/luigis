@@ -39,7 +39,7 @@ namespace luigis
                     name: "default",
                     template: "{controller=Product}/{action=List}/{id?}");
             });
-            SeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
         }
     }
 }
