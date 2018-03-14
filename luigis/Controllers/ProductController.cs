@@ -1,10 +1,7 @@
 ﻿using luigis.Models;
 using luigis.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace luigis.Controllers
 {
@@ -18,12 +15,12 @@ namespace luigis.Controllers
             repository = repo;
         }
 
-        public ViewResult List(int productPage = 1) => 
-            View(new ProductsListViewModel
+        public ViewResult List(int productPage = 1)
+            => View(new ProductsListViewModel
             {
                 Products = repository.Products
                     .OrderBy(p => p.ProductId)
-                    .Skip((productPage -1) * PageSize)
+                    .Skip((productPage - 1) * PageSize)
                     .Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
