@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace luigis.Models
 {
-    public class FakeProductRepository : IProductRepository
+    public class FakeProductRepository // : IProductRepository
     {
         public IQueryable<Product> Products => new List<Product> {
             new Product { Name = "Chicken Fettucini Alfredo", Price = 13 },

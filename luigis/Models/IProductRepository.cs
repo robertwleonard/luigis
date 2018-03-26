@@ -8,5 +8,9 @@ namespace luigis.Models
     public interface IProductRepository
     {
         IQueryable<Product> Products { get; }
+
+        void SaveProuct(Product product);
+
+        Product DeleteProduct(int productId);
     }
 }
