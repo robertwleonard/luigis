@@ -1,9 +1,7 @@
 ﻿using luigis.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace luigis.Controllers
 {
@@ -18,9 +16,11 @@ namespace luigis.Controllers
             cart = cartService;
         }
 
+        [Authorize]
         public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
 
         [HttpPost]
+        [Authorize]
         public IActionResult MarkShipped(int orderId)
         {
             Order order = repository.Orders
